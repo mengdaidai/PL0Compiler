@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1450184208 source:g:\codeblocks\projects\pl0compiler\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"PL0.c"
+	"NodeList.h"
+	"Stack.h"
+
+1450185090 g:\codeblocks\projects\pl0compiler\pl0.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"PL0.h"
+
+1450184143 g:\codeblocks\projects\pl0compiler\pl0.h
+	<stdio.h>
+	"NodeList.h"
+	"Stack.h"
+
+1449673488 g:\codeblocks\projects\pl0compiler\nodelist.h
+
+1449673507 source:g:\codeblocks\projects\pl0compiler\nodelist.c
+	<stdlib.h>
+	<string.h>
+	"NodeList.h"
+
+1450018343 g:\codeblocks\projects\pl0compiler\stack.h
+	<stdio.h>
+	"NodeList.h"
+
+1450018337 source:g:\codeblocks\projects\pl0compiler\stack.c
+	"Stack.h"
+	"NodeList.h"
+
