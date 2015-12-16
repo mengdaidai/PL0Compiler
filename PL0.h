@@ -1,10 +1,16 @@
 /*
-*   Created By DaiXinjie @2015-12-13
+*  Created by DaiXinjie @2015-12-16
+*  源程序语法语义分析相关变量声明
 */
+
+#ifndef PL0_H
+#define PL0_H
+
 
 #include <stdio.h>
 #include "NodeList.h"
 #include "Stack.h"
+#include "Common.h"
 
 #define NRW        13     // number of reserved words
 #define TXMAX      500    // length of identifier table
@@ -19,20 +25,17 @@
 #define MAXSYM     30     // maximum number of symbols
 
 #define STACKSIZE  1000   // maximum storage
-#define MAXPRONUM 100   //  maximum production length
-#define MAXITEMNUM 500  //maximum item num
-#define MAXPROSIZE 10
+
+
+#define C_NUM 119
 
 typedef int bool ;
 #define true 1
 #define false 0
 
-#define VTLength 33
-#define VNLength 26
-#define C_NUM 119
 
 
-bool isAnnotation = false;
+
 
 enum symtype
 {
@@ -93,67 +96,21 @@ enum oprcode
 
 
 
-typedef struct
-{
-	int f; // function code
-	int l; // level
-	int a; // displacement address
-} instruction;
 
-//////////////////////////////////////////////////////////////////////
-char* err_msg[] =
-{
-/*  0 */    "",
-/*  1 */    "Found ':=' when expecting '='.",
-/*  2 */    "There must be a number to follow '='.",
-/*  3 */    "There must be an '=' to follow the identifier.",
-/*  4 */    "There must be an identifier to follow 'const', 'var', or 'procedure'.",
-/*  5 */    "Missing ',' or ';'.",
-/*  6 */    "Incorrect procedure name.",
-/*  7 */    "Statement expected.",
-/*  8 */    "Follow the statement is an incorrect symbol.",
-/*  9 */    "'.' expected.",
-/* 10 */    "';' expected.",
-/* 11 */    "Undeclared identifier.",
-/* 12 */    "Illegal assignment.",
-/* 13 */    "':=' expected.",
-/* 14 */    "There must be an identifier to follow the 'call'.",
-/* 15 */    "A constant or variable can not be called.",
-/* 16 */    "'then' expected.",
-/* 17 */    "';' or 'end' expected.",
-/* 18 */    "'do' expected.",
-/* 19 */    "Incorrect symbol.",
-/* 20 */    "Relative operators expected.",
-/* 21 */    "Procedure identifier can not be in an expression.",
-/* 22 */    "Missing ')'.",
-/* 23 */    "The symbol can not be followed by a factor.",
-/* 24 */    "The symbol can not be as the beginning of an expression.",
-/* 25 */    "The number is too great.",
-/* 26 */    "",
-/* 27 */    "",
-/* 28 */    "",
-/* 29 */    "",
-/* 30 */    "",
-/* 31 */    "",
-/* 32 */    "There are too many levels."
-};
+
+
 
 //////////////////////////////////////////////////////////////////////
 char ch;         // last character read
 int  sym;        // last symbol read
 char id[MAXIDLEN + 1]; // last identifier read
 int  num;        // last number read
-int  cc = -1;         // character count
-int  ll = -1;         // line length
+int  cc ;         // character count
+int  ll ;         // line length
 int  kk;
-int  err;
-int  cx;         // index of current instruction to be generated.
-int  level = 0;
-int  tx = 0;
 
 char line[80];
 
-instruction code[CXMAX];
 
 char* word[NRW + 1] =
 {
@@ -193,43 +150,11 @@ char* mnemonic[MAXINS] =
 
 
 
-typedef struct
-{
-	char  name[MAXIDLEN + 1];
-	int   kind;
-	short level;
-	short address;
-} mask;
 
-typedef struct
-{
-    int dot_location;
-    char* before;
-    char* after;
-    int production_index;
-    int afterLength;
-}Item;
 
-typedef struct
-{
-    List item_list;
-    int length;
-    int main_length;//记录主项目个数，为判断项目集是否相等提供便利，即只判断主项目即可判断两个项目集是否相等
-}Items;
 
-typedef struct
-{
-    char* before;
-    char* after;
-    int start;
-    int afterLength;
-}Production;
 
-typedef struct
-{
-    char action;
-    int index;
-}Action;
+
 
 
 typedef struct
@@ -257,26 +182,13 @@ typedef struct
     int index;
 }Statement;
 
-
-
-Production allProduction[MAXPRONUM];
-int allProductionLength;
-Item allItems[MAXITEMNUM];
-int allItemLength;
-int C_num;
-List C;
-List table;
 Action** all_actions;
 
 
 char Xs[VTLength+VNLength] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','(',')','*','+',
                               ',','-','.',';','<','=','>','/','#'};
 
-List FIRST[VNLength];
-List FOLLOW[VNLength];
 
-List first_include[VNLength];
-List follow_include[VNLength];
 
 Stack status_stack;
 Stack X_stack;
@@ -285,8 +197,10 @@ Stack attribute_stack;
 
 List main_id_list;
 List current_id_list;
-int current_level = 0;
+int current_level ;
 int current_statement_index;
 List aim_statements;
 
 FILE* infile;
+
+#endif // PL0_H

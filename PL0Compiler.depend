@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1450184208 source:g:\codeblocks\projects\pl0compiler\main.c
+1450234804 source:g:\codeblocks\projects\pl0compiler\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -7,17 +7,18 @@
 	"NodeList.h"
 	"Stack.h"
 
-1450185090 g:\codeblocks\projects\pl0compiler\pl0.c
+1450234977 g:\codeblocks\projects\pl0compiler\pl0.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	"PL0.h"
 
-1450184143 g:\codeblocks\projects\pl0compiler\pl0.h
+1450234952 g:\codeblocks\projects\pl0compiler\pl0.h
 	<stdio.h>
 	"NodeList.h"
 	"Stack.h"
+	"Common.h"
 
 1449673488 g:\codeblocks\projects\pl0compiler\nodelist.h
 
@@ -26,11 +27,25 @@
 	<string.h>
 	"NodeList.h"
 
-1450018343 g:\codeblocks\projects\pl0compiler\stack.h
+1450235016 g:\codeblocks\projects\pl0compiler\stack.h
 	<stdio.h>
 	"NodeList.h"
 
-1450018337 source:g:\codeblocks\projects\pl0compiler\stack.c
+1450234997 source:g:\codeblocks\projects\pl0compiler\stack.c
+	"Stack.h"
+	"NodeList.h"
+
+1450235452 source:g:\codeblocks\projects\pl0compiler\slrtable.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"SLRTable.h"
+
+1450234573 g:\codeblocks\projects\pl0compiler\common.h
+
+1450234921 g:\codeblocks\projects\pl0compiler\slrtable.h
+	"Common.h"
 	"Stack.h"
 	"NodeList.h"
 

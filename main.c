@@ -47,7 +47,7 @@ int main()
             Next(&it);
         }
     }*/
-   // create_first();
+    //create_first();
     /*FILE* first_file = fopen("first.txt","w");
     int i ;
     for(i = 0;i<VNLength;i++){
@@ -60,7 +60,7 @@ int main()
         fprintf(first_file,"%c",'\n');
     }*/
 
-   // scan_follow_include();
+    //scan_follow_include();
     /*int j;
     for(j = 0;j<VNLength;j++){
         Iterator it = Begin(follow_include[j]);

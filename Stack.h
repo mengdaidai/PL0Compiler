@@ -1,5 +1,6 @@
 /*
 *   Created By DaiXinjie @2015-12-13
+*   栈相关函数的声明
 */
 
 
